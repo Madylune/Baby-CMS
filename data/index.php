@@ -1,4 +1,5 @@
 <?php
+    session_start();
     // Autoload load the good file if we have unknown class
     spl_autoload_register(function($className) {
         $directory= '';
