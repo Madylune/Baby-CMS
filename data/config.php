@@ -2,15 +2,8 @@
 /**
  * 
  */
-    const DB_NAME = 'my_cms';
-    const USER = 'root';
-    const PASS = 'root';
-    protected $dbConnec;
-    protected $tableName;
-
-    try {
-        $this->dbConnec = new PDO('mysql:host=localhost;dbname='.self::DB_NAME, self::USER, self::PASS);
-    } catch(Exception $e) {
-        die('Erreur : '.$e->getMessage());
-    }
+define (DB_USER, "mysql_user");
+define (DB_PASSWORD, "mysql_password");
+define (DB_DATABASE, "database_name");
+define (DB_HOST, "localhost");
 ?>
