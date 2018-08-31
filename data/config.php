@@ -2,8 +2,10 @@
 /**
  * 
  */
-define (DB_USER, "mysql_user");
-define (DB_PASSWORD, "mysql_password");
-define (DB_DATABASE, "database_name");
-define (DB_HOST, "localhost");
+const DB_NAME = 'my_cms';
+const USER = 'root';
+const PASS = 'root';
+
+$dbConnec = new PDO('mysql:host=localhost;dbname=' . DB_NAME, USER, PASS);
+
 ?>

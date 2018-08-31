@@ -18,6 +18,32 @@ class TemplateHelper
                 $result = str_replace('%%' . strtoupper($key) . '%%', $value, $result);
             }
         }
+        if ($_SESSION) {
+            include('config.php');
+            $request = $dbConnec->prepare('SELECT title FROM pages');
+            $request->execute();
+            while ($list = $request->fetch(PDO::FETCH_ASSOC))
+            {
+                $element = $list['title'];
+                switch($element){
+                    case 'Home':
+                        $link = '/view/home';
+                        break;
+                    case 'Page sur les pandas':
+                        $link = '/view/panda';
+                        break;
+                    case 'Page sur les cupcakes':
+                        $link = '/view/cupcake';
+                        break;
+                    case 'Page sur la kpop':
+                        $link = '/view/kpop';
+                        break;
+                    default:
+                        $link = '/view/home';
+                }
+                echo '<ul><li><a href="'.$link.'">'.$element.'</a></li></ul>';
+            }
+        }
         return $result;
     }
 }
